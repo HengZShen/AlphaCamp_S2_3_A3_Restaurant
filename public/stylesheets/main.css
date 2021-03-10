@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&family=Source+Sans+Pro:wght@600&display=swap');
+
+* {
+  font-family: 'Source Sans Pro','Noto Sans TC', sans-serif;
+}
+
 header {
   overflow: hidden;
 }
@@ -62,6 +68,9 @@ header {
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color:rgb(114, 99, 99);
 }
 
 .restaurant-category {
@@ -78,11 +87,46 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.badge {
+  width:25%;
+}
+
+.fas {
+  font-size:1.2rem;
+}
+
+
 @media screen and (max-width: 992px) {
   
   .card img{
     height: 115px;
   }
+
+  .card-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color:rgb(114, 99, 99);
+}
+
+
+.info {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  width:50%;
+}
+
+#rating {
+  margin-top:10px;
+}
+
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -90,6 +134,30 @@ header {
   .restaurant-show-title {
     font-size: 2rem;
   }
+
+  .card-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  letter-spacing: 1px;
+  font-size: 12px;
+  color:rgb(114, 99, 99);
+}
+
+.info {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  width:50%;
+}
+
+#rating {
+  margin-top:10px;
+}
+
 }
 
 @media screen and (max-width: 575px) {
@@ -97,5 +165,22 @@ header {
   .card img{
     height: auto;
   }
+
+  .card-title{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  letter-spacing: 1px;
+  font-size: 20px;
+  color:rgb(114, 99, 99);
+}
   
+  .badge {
+  width:30%;
+}
+
+#rating {
+  width:15%;
+}
+
 }
