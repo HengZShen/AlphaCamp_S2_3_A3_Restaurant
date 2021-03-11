@@ -1,10 +1,23 @@
-// 針對基本CSS 修改
-
-
 
 
 
 // loading
+
+const loader = document.querySelector('.loader-container')
+const container = document.querySelector('.card-container')
+const searchBtn = document.querySelector('#search-button')
+
+searchBtn.addEventListener('click', loading)
+
+function loading() {
+
+  loader.hidden = false;
+  container.hidden = true;
+}
+
+
+
+// 重新下載 fontawesome 嘗試放在 public 藉由路徑搜尋 css檔案
 
 // Light Dark mode
 
