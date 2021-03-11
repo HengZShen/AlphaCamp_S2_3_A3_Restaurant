@@ -27,3 +27,6 @@
  ` Type "nodemon app.js`  <br>
   ` If you see " The server is running on http://localhost:3000 " pop on your terminal`  <br>
   ` The server starts successfully`
+
+  ## Contribute
+  Preliminary layouts and CSS are provided by [AlphaCamp](https://tw.alphacamp.co/)
