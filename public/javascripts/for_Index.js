@@ -19,7 +19,6 @@ function loading() {
 
 
 
-// 重新下載 fontawesome 嘗試放在 public 藉由路徑搜尋 css檔案
 
 // Light Dark mode
 
