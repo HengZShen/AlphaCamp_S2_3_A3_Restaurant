@@ -12,7 +12,9 @@ searchBtn.addEventListener('click', loading)
 function loading() {
 
   loader.hidden = false;
-  container.hidden = true;
+  // container.hidden = true; => not work ... 
+  container.style.visibility = 'hidden';
+  // container.innerHTML = ''; =>  work !
 }
 
 

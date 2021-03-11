@@ -36,8 +36,13 @@ app.get('/search', (req, res) => {
   const keyword = req.query.keyword.toLowerCase().trim()
   const restaurants = restaurantData.results.filter(shop => shop.name.toLowerCase().includes(keyword))
 
-  setTimeout(() => { res.render('index', { restaurants, keyword }) }, 1000)
 
+  if (restaurants.length === 0) {
+    setTimeout(() => { res.render('noResult', { keyword }) }, 1000)
+
+  } else {
+    setTimeout(() => { res.render('index', { restaurants, keyword }) }, 1000)
+  }
 })
 
 

@@ -106,6 +106,10 @@ header {
   margin-top: 2em;
 }
 
+#no-match {
+  color:#ca0606;
+  font-size: 2rem;
+}
 
 @media screen and (max-width: 992px) {
   
