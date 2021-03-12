@@ -9,18 +9,44 @@
 
   --nav-bg-color : rgb(248, 248, 248);
   --main-bg-color : rgb(255, 253, 253);
+  --banner-color : rgb(221 221 221) center center url(https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg);
+  --banner-opacity: 1;
   --search-bar-outer-color: #fce2cf;
   --card-body-color : white;
+  --card-bg-color:white;
   --category-color : #f8f9fa;
   --rating-color : #dc3545;
 
   /* font */
+  --nav-title-color:black;
   --search-title-color : #9b4b4b;
   --card-title-color : rgb(51, 53, 53);
   --fas-restaurant-color: Black;
   --fas-rating-color: white;
   --fa-search-color:black;
 }
+
+[data-mode='Dark'] {
+  --nav-bg-color : rgb(68, 68, 68);
+  --main-bg-color : rgb(68, 68, 68);
+  --banner-color : rgb(221 221 221) center center url(https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg);
+    --banner-opacity: 0.8;
+  --search-bar-outer-color: #f8f9fa;
+  --card-body-color : #9db9d7;
+  --card-bg-color:none;
+  --category-color : #f8f9fa;
+  --rating-color : #dc3545;
+  
+
+  /* font */
+   --nav-title-color:white;
+  --search-title-color : #9b4b4b;
+  --card-title-color : rgb(51, 53, 53);
+  --fas-restaurant-color: Black;
+  --fas-rating-color: white;
+  --fa-search-color:black;
+}
+
 
 body {
   background-color: var(--main-bg-color) !important;
@@ -31,11 +57,11 @@ header {
 }
 
 .navbar {
-  background-color: var(--nav-bg-color);
+  background-color: var(--nav-bg-color) !important;
 }
 
 .navbar .navbar-brand {
-  color: #4592af;
+  color: var(--nav-title-color);
 }
 
 .navbar .navbar-brand:hover {
@@ -47,7 +73,8 @@ header {
   z-index: -1;
   margin: -5px;
   height: 360px;
-  background: #dddddd center center url('https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg');
+  background: var(--banner-color);
+  opacity: var(--banner-opacity);
   background-size: cover;
   filter: blur(3px);
 }
@@ -92,6 +119,7 @@ header {
 
 .card {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background-color:var(--card-bg-color) im !important;
 }
 
 .card-body {
