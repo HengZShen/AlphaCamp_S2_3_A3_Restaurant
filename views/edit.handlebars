@@ -1,0 +1,44 @@
+<form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+
+
+  <div class="name-container">
+    <input type="text" placeholder="name" id="name" name="name" value="{{restaurant.name}}">
+    <label for="name">名字</label>
+    <input type="text" placeholder="english name" id="name_en" name="name_en" value="{{restaurant.name_en}}">
+    <label for="name_en">英文名字</label>
+  </div>
+
+  <input placeholder="category" id="category" list="categories" name="category" value="{{restaurant.category}}">
+  <label for="category">類別</label>
+  <datalist id="categories">
+    <option value="美式餐廳">
+    <option value="日式餐廳">
+    <option value="中東料理">
+    <option value="義式餐廳">
+    <option value="咖啡">
+  </datalist>
+
+
+
+  <input type="text" placeholder="img-url" id="image" name="image" value="{{restaurant.image}}">
+  <label for="image">圖片</label>
+
+  <div class="information-container">
+    <input type="text" placeholder="location" id="location" name="location" value="{{restaurant.location}}">
+    <label for="location">地址</label>
+    <input type="text" placeholder="02-xxxxxxxx" id="phone" name="phone" value="{{restaurant.phone}}">
+    <label for="phone">電話</label>
+  </div>
+
+  <input type="text" placeholder="google-map" id="google-map" name="google_map" value="{{restaurant.google_map}}">
+  <label for="google-map">google地圖</label>
+
+  <input type="number" placeholder="rating" id="rating" name="rating" value="{{restaurant.rating}}">
+  <label for="rating">評價</label>
+
+  <input type="text" placeholder="description" id="description" name="description" value="{{restaurant.description}}">
+  <label for="description">敘述</label>
+
+  <button type="submit">Sava</button>
+
+</form>

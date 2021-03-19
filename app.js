@@ -78,7 +78,6 @@ app.get('/restaurant/new', (req, res) => {
 
 app.post('/restaurants', (req, res) => {
   const data = req.body
-  console.log(data)
   Restaurant.create({
     name: data.name,
     name_en: data.name_en,
@@ -92,6 +91,36 @@ app.post('/restaurants', (req, res) => {
   }).then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+
+// edit one restaurant
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
+app.post("/restaurants/:id/edit", (req, res) => {
+  const id = req.params.id
+  const data = req.body
+  Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant.name = data.name
+      restaurant.name_en = data.name_en
+      restaurant.category = data.category
+      restaurant.image = data.image
+      restaurant.location = data.location
+      restaurant.phone = data.phone
+      restaurant.google_map = data.google_map
+      restaurant.rating = data.rating
+      restaurant.description = data.description
+      restaurant.save()
+    }).then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+}
+)
 
 
 // start and listen server
