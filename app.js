@@ -2,8 +2,15 @@
 const express = require('express')
 const app = express()
 const port = 3000
+// handlebars
 const exphbs = require('express-handlebars')
-const restaurantData = require('./restaurant.json')
+
+// bodyParser 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// Restaurant model
+const Restaurant = require('./models/restaurant')
 
 // connect to mongoDB through mongoose
 const mongoose = require('mongoose')
@@ -27,12 +34,17 @@ app.set("view engine", 'handlebars')
 // set static files
 app.use(express.static('public'))
 
+
 // route setting
 
 // route : index
 app.get('/', (req, res) => {
 
-  res.render('index', { restaurants: restaurantData.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
+
 })
 
 // route : show
