@@ -59,8 +59,8 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 // route : search
 app.get('/search', (req, res) => {
 
-  const keyword = req.query.keyword.toLowerCase().trim()
-  const restaurants = restaurantData.results.filter(shop => shop.name.toLowerCase().includes(keyword))
+  // const keyword = req.query.keyword.toLowerCase().trim()
+  // const restaurants = restaurantData.results.filter(shop => shop.name.toLowerCase().includes(keyword))
 
 
   if (restaurants.length === 0) {
@@ -72,12 +72,25 @@ app.get('/search', (req, res) => {
 })
 
 // route : new restaurant
-app.get('/new', (req, res) => {
+app.get('/restaurant/new', (req, res) => {
   res.render('new')
 })
 
-app.post('/restaurants/new', (req, res) => {
-  console.log(req.body)
+app.post('/restaurants', (req, res) => {
+  const data = req.body
+  console.log(data)
+  Restaurant.create({
+    name: data.name,
+    name_en: data.name_en,
+    category: data.category,
+    image: data.image,
+    location: data.location,
+    phone: data.phone,
+    google_map: data.google_map,
+    rating: data.rating,
+    description: data.description
+  }).then(() => res.redirect('/'))
+    .catch(error => console.log(error))
 })
 
 
