@@ -1,0 +1,41 @@
+<form action="/restaurants/new" method="POST">
+
+
+  <div class="name-container">
+    <input type="text" placeholder="name" id="name" name="name">
+    <label for="name">名字</label>
+    <input type="text" placeholder="english name" id="name_en" name="name_en">
+    <label for="name_en">英文名字</label>
+  </div>
+
+  <input placeholder="category" id="category" list="categories" name="category">
+  <label for="category">類別</label>
+  <datalist id="categories">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+
+
+
+  <input type="text" placeholder="img-url" id="image" name="image">
+  <label for="image">圖片</label>
+
+  <div class="information-container">
+    <input type="text" placeholder="location" id="location" name="location">
+    <label for="location">地址</label>
+    <input type="text" placeholder="02-xxxxxxxx" id="phone" name="phone">
+    <label for="phone">電話</label>
+  </div>
+
+  <input type="text" placeholder="google-map" id="google-map" name="google_map">
+  <label for="google-map">google地圖</label>
+
+  <input type="number" placeholder="rating" id="rating" name="rating">
+  <label for="rating">評價</label>
+
+  <button type="submit">Sava</button>
+
+</form>

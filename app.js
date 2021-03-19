@@ -71,6 +71,15 @@ app.get('/search', (req, res) => {
   }
 })
 
+// route : new restaurant
+app.get('/new', (req, res) => {
+  res.render('new')
+})
+
+app.post('/restaurants/new', (req, res) => {
+  console.log(req.body)
+})
+
 
 // start and listen server
 app.listen(port, (req, res) => {
