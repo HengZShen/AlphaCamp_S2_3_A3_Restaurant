@@ -50,9 +50,10 @@ app.get('/', (req, res) => {
 // route : show
 app.get('/restaurants/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
-  const restaurant = restaurantData.results.find(shop => shop.id.toString() === id)
-
-  res.render('show', { restaurant })
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 // route : search
