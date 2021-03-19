@@ -122,6 +122,14 @@ app.post("/restaurants/:id/edit", (req, res) => {
 }
 )
 
+// delete a restaurant
+app.get('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 // start and listen server
 app.listen(port, (req, res) => {
