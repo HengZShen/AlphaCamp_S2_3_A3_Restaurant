@@ -1,6 +1,4 @@
-const loader = document.querySelector('.loader-container')
-const container = document.querySelector('.card-container')
-const searchBtn = document.querySelector('#search-button')
+
 const toggleSwitch = document.querySelector('input[type="checkbox"]')
 const previousMode = localStorage.getItem('background-mode') || []
 console.log(previousMode)
@@ -19,17 +17,6 @@ if (previousMode !== {}) {
   }
 }
 
-
-// loading
-searchBtn.addEventListener('click', loading)
-
-function loading() {
-
-  loader.hidden = false;
-  // container.hidden = true; => not work ... 
-  container.style.visibility = 'hidden';
-  // container.innerHTML = ''; =>  work !
-}
 
 
 
