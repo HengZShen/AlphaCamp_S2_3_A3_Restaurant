@@ -1,44 +1,81 @@
-<form action="/restaurants/{{restaurant._id}}/edit" method="POST">
+<div class="form-container d-flex justify-content-center mt-5">
+
+  <form action="/restaurants/{{restaurant._id}}/edit" method="POST" novalidate>
+    <div class="title text-center col-12">
+      <h3>新增餐廳 <i class="fas fa-hamburger"></i></h3>
+    </div>
+
+    <div class="d-flex justify-content-around mb-2">
+      <label for="name" class="mr-2">名字</label>
+      <input type="text" placeholder="name" id="name" name="name" value="{{restaurant.name}}" required>
+
+      <label for="category" class="mr-2 ml-2">類別</label>
+      <input placeholder="category" id="category" list="categories" name="category" value="{{restaurant.category}}"
+        required>
+      <datalist id="categories">
+        <option value="美式餐廳">
+        <option value="日式餐廳">
+        <option value="中東料理">
+        <option value="義式餐廳">
+        <option value="咖啡">
+      </datalist>
+    </div>
+
+    <div class="d-flex flex-column  mb-2">
+      <label for="name_en">英文名字</label>
+      <input type="text" placeholder="english name" id="name_en" name="name_en" value="{{restaurant.name_en}}" required>
+    </div>
+
+    <div class="d-flex flex-column  mb-2">
+
+      <label for="image">圖片url</label>
+      <input type="text" placeholder="img-rul" id="image" name="image" value="{{restaurant.image}}" required>
+
+    </div>
 
 
-  <div class="name-container">
-    <input type="text" placeholder="name" id="name" name="name" value="{{restaurant.name}}">
-    <label for="name">名字</label>
-    <input type="text" placeholder="english name" id="name_en" name="name_en" value="{{restaurant.name_en}}">
-    <label for="name_en">英文名字</label>
-  </div>
-
-  <input placeholder="category" id="category" list="categories" name="category" value="{{restaurant.category}}">
-  <label for="category">類別</label>
-  <datalist id="categories">
-    <option value="美式餐廳">
-    <option value="日式餐廳">
-    <option value="中東料理">
-    <option value="義式餐廳">
-    <option value="咖啡">
-  </datalist>
 
 
 
-  <input type="text" placeholder="img-url" id="image" name="image" value="{{restaurant.image}}">
-  <label for="image">圖片</label>
+    <div class="d-flex flex-column  mb-4">
+      <label for="location">地址</label>
+      <input type="text" placeholder="location" id="location" name="location" value="{{restaurant.location}}" required>
+    </div>
 
-  <div class="information-container">
-    <input type="text" placeholder="location" id="location" name="location" value="{{restaurant.location}}">
-    <label for="location">地址</label>
-    <input type="text" placeholder="02-xxxxxxxx" id="phone" name="phone" value="{{restaurant.phone}}">
-    <label for="phone">電話</label>
-  </div>
+    <div class="phone-rating-container mt-2 mb-2 d-flex justify-content-around">
+      <label for="phone" class="mr-2">電話</label>
+      <input type="text" placeholder="02-xxxxxxxx" id="phone" name="phone" value="{{restaurant.phone}}" required>
 
-  <input type="text" placeholder="google-map" id="google-map" name="google_map" value="{{restaurant.google_map}}">
-  <label for="google-map">google地圖</label>
+      <label for="rating" class="mr-2 ml-2">評價</label>
+      <input type="number" min="0" placeholder="rating" id="rating" name="rating" value="{{restaurant.rating}}"
+        required>
+    </div>
 
-  <input type="number" placeholder="rating" id="rating" name="rating" value="{{restaurant.rating}}">
-  <label for="rating">評價</label>
 
-  <input type="text" placeholder="description" id="description" name="description" value="{{restaurant.description}}">
-  <label for="description">敘述</label>
 
-  <button type="submit">Sava</button>
+    <div class=" d-flex flex-column mb-2">
+      <label for="google-map">Google map</label>
+      <input type="text" placeholder="google-map" id="google-map" name="google_map" value="{{restaurant.google_map}}"
+        required>
+    </div>
 
-</form>
+
+
+
+    <div class="d-flex flex-column  mb-2">
+      <label for="description">敘述</label>
+      <textarea type="text" placeholder="description" id="description"
+        name="description">{{restaurant.description}}</textarea>
+    </div>
+
+    <div class="button-container d-flex justify-content-center">
+      <button type="submit" class="btn btn-info" style="width: 100px;">新增!</button>
+    </div>
+
+
+  </form>
+
+
+</div>
+
+<script src="/javascripts/for_Show.js"></script>

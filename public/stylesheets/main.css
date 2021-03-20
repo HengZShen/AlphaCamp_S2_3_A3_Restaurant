@@ -256,6 +256,24 @@ input:checked + .slider:before {
  transform:translateX(28px);
 }
 
+.form-container {
+  background-color: #a2a8aa;
+  box-shadow:0px 0px 5px 0 rgb(128, 126, 126);
+  border-radius:5px;
+  width: fit-content  !important;
+  padding: 1em;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+input, textarea {
+  border-radius: 5px;
+    background-color: #ccc;
+    border: none;
+    /* border-bottom: 2px solid #fffdfd; */
+}
+
+
 @media screen and (max-width: 992px) {
   
   .card img{
@@ -287,6 +305,8 @@ input:checked + .slider:before {
 
   
 }
+
+
 
 @media screen and (max-width: 768px) {
   
