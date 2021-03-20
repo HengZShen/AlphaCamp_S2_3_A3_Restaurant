@@ -31,7 +31,7 @@
  ` Type "npm intall" in your terminal`
  4. Install nodemen  <br>
  ` Type "npm install nodemon" `
- 5. Create seed data
+ 5. Create seed data <br>
  ` Type "npm run seed `
  6. Start server  <br>
  ` Type "nodemon app.js`  <br>
