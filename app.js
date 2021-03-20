@@ -59,16 +59,19 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 // route : search
 app.get('/search', (req, res) => {
 
-  // const keyword = req.query.keyword.toLowerCase().trim()
-  // const restaurants = restaurantData.results.filter(shop => shop.name.toLowerCase().includes(keyword))
+  const keyword = req.query.keyword.toLowerCase().trim()
 
+  Restaurant.find({ name: { $regex: `^${keyword}`, $options: 'i' } })
+    .lean()
+    .then(restaurants => {
+      if (restaurants.length === 0) {
+        setTimeout(() => { res.render('noResult', { keyword }) }, 1000)
 
-  if (restaurants.length === 0) {
-    setTimeout(() => { res.render('noResult', { keyword }) }, 1000)
+      } else {
+        setTimeout(() => { res.render('index', { restaurants, keyword }) }, 1000)
+      }
+    })
 
-  } else {
-    setTimeout(() => { res.render('index', { restaurants, keyword }) }, 1000)
-  }
 })
 
 // route : new restaurant
