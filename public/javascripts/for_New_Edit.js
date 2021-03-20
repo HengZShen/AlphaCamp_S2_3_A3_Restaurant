@@ -1,7 +1,4 @@
-const loader = document.querySelector('.loader-container')
-const container = document.querySelector('.card-container')
-const searchBtn = document.querySelector('#search-button')
-const searchInput = document.querySelector('input[type="text"]')
+// Dark-Light mode
 const toggleSwitch = document.querySelector('input[type="checkbox"]')
 const previousMode = localStorage.getItem('background-mode') || []
 console.log(previousMode)
@@ -20,17 +17,6 @@ if (previousMode !== {}) {
   }
 }
 
-
-// loading
-searchBtn.addEventListener('click', loading)
-
-function loading() {
-  if (searchInput.value.trim().length === 0) return
-  loader.hidden = false;
-  // container.hidden = true; => not work ... 
-  container.style.visibility = 'hidden';
-  // container.innerHTML = ''; =>  work !
-}
 
 
 
@@ -53,6 +39,7 @@ toggleSwitch.addEventListener('change', switchMode)
 
 
 
+
 // form validation
 const form = document.querySelector('form')
 form.addEventListener('submit', function manualCheck(event) {
@@ -62,6 +49,7 @@ form.addEventListener('submit', function manualCheck(event) {
   }
 })
 
-searchBtn.addEventListener('click', function firstCheck(event) {
+const submitBtn = document.querySelector('.btn')
+submitBtn.addEventListener('click', function firstCheck() {
   form.classList.add('was-validated')
 })

@@ -256,6 +256,8 @@ input:checked + .slider:before {
  transform:translateX(28px);
 }
 
+/* form */
+
 .form-container {
   background-color: #a2a8aa;
   box-shadow:0px 0px 5px 0 rgb(128, 126, 126);
@@ -273,6 +275,25 @@ input, textarea {
     /* border-bottom: 2px solid #fffdfd; */
 }
 
+/* check form validity */
+
+form.was-validated input:invalid {
+  border-bottom : 1px solid red;
+
+}
+
+form.was-validated input:valid {
+  border-bottom : 1px solid green;
+}
+
+form.was-validated textarea:invalid {
+  border-bottom : 1px solid red;
+
+}
+
+form.was-validated textarea:valid {
+  border-bottom : 1px solid green;
+}
 
 @media screen and (max-width: 992px) {
   
