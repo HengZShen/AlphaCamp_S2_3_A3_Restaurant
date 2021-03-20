@@ -71,7 +71,7 @@ app.get('/search', (req, res) => {
         setTimeout(() => { res.render('index', { restaurants, keyword }) }, 1000)
       }
     })
-
+    .catch(error => console.log(error))
 })
 
 // route : new restaurant
