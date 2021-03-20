@@ -49,7 +49,7 @@ form.addEventListener('submit', function manualCheck(event) {
   }
 })
 
-const submitBtn = document.querySelector('.btn')
+const submitBtn = document.querySelector('#restaurant')
 submitBtn.addEventListener('click', function firstCheck() {
   form.classList.add('was-validated')
 })
