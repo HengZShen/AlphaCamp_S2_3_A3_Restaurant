@@ -19,19 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const Restaurant = require('./models/restaurant')
 
 
-// connect to mongoDB through mongoose
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected')
-})
+// mongodb connect
+require('./config/mongoose')
 
 // set template engine
 app.engine('handlebars', exphbs({ defaultLayout: "main" }))
