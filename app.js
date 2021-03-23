@@ -4,6 +4,10 @@ const app = express()
 const port = 3000
 
 
+// bodyParser 
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // Router 
 const routes = require('./routes')
 app.use(routes)
@@ -11,9 +15,6 @@ app.use(routes)
 // handlebars
 const exphbs = require('express-handlebars')
 
-// bodyParser 
-const bodyParser = require('body-parser')
-app.use(bodyParser.urlencoded({ extended: true }))
 
 // Restaurant model
 const Restaurant = require('./models/restaurant')

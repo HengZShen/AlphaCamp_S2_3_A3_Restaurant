@@ -10,7 +10,9 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+
   const data = req.body
+
   Restaurant.create({
     name: data.name,
     name_en: data.name_en,

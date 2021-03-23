@@ -1,7 +1,6 @@
-
+// Dark-Light mode
 const toggleSwitch = document.querySelector('input[type="checkbox"]')
 const previousMode = localStorage.getItem('background-mode') || []
-console.log(previousMode)
 
 
 // 根據上一次選擇 切換模式
@@ -36,7 +35,5 @@ function switchMode(event) {
 
 
 toggleSwitch.addEventListener('change', switchMode)
-
-
 
 
