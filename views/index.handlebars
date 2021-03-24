@@ -5,8 +5,9 @@
       <form action="/restaurants/search" novalidate>
         <h4 id="search-title" class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳名字" aria-label="Restaurant Name..."
+          <input type="text" name="keyword" class="form-control" placeholder="請輸入餐廳名字" aria-label="Restaurant Name..."
             value="{{keyword}}" aria-describedby="search-button" required>
+          <input type="text" name="searchType" id="searchType" value="name" style="display: none;">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
@@ -15,9 +16,11 @@
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              More options
+              更多搜尋選擇
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">餐廳名字 <span id="create-space">&nbsp&nbsp&nbsp<i
+                    class="fas fa-check"></i></span></a>
               <a class="dropdown-item" href="#">餐廳種類 <span id="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
               <a class="dropdown-item" href="#">評價 <span id="create-space">&nbsp&nbsp&nbsp<i
