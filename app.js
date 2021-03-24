@@ -17,6 +17,10 @@ app.use(express.static('public'))
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// method-override
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
 // mongodb connect
 require('./config/mongoose')
 

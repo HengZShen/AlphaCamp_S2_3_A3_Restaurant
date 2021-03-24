@@ -10,6 +10,4 @@ router.use('/restaurants', restaurants)
 
 
 
-
-
 module.exports = router

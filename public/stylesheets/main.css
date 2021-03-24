@@ -295,6 +295,20 @@ form.was-validated textarea:valid {
   border-bottom : 1px solid green;
 }
 
+/* delete-btn */
+#delete-btn {
+  background-color:transparent;
+  border:none
+}
+
+#create-space {
+  display: none;
+}
+
+.dropdown-item.was-clicked > #create-space {
+  display:inline
+}
+
 @media screen and (max-width: 992px) {
   
   .card img{
