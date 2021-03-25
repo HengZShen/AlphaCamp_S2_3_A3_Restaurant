@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
           setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
         }
       })
-      .catch(error => console.log('1234'))
+      .catch(error => console.log(error))
   } else if (searchType === '餐廳種類') {
     Restaurant.find({
       category: { $regex: `${keyword}`, $options: 'i' },
