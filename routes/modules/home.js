@@ -1,7 +1,7 @@
 const express = require('express')
-const app = express()
+
 const router = express.Router()
-const exphbs = require('express-handlebars')
+
 
 const Restaurant = require('../../models/restaurant')
 

@@ -36,7 +36,16 @@ router.get('/:restaurant_id', (req, res) => {
   Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
-    .catch(error => console.log(error))
+    .catch(error => {
+
+      console.log(error)
+
+      // exception
+      const url = req.url
+      res.render('undefinedRoute', { url, layout: 'forUndefined' })
+
+
+    })
 })
 
 
@@ -49,8 +58,8 @@ router.get('/:id/edit', (req, res) => {
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => {
       console.log(error)
-      console.log('--------------------------------------')
-      res.send('error now please refresh to http://localhost3000')
+      const url = req.url
+      res.render('undefinedRoute', { url, layout: 'forUndefined' })
     })
 })
 
@@ -86,6 +95,12 @@ router.delete('/:id', (req, res) => {
 })
 
 
+// exception
+router.get('/*', (req, res) => {
+
+  const url = req.url
+  res.render('undefinedRoute', { url, layout: 'forUndefined' })
+})
 
 
 module.exports = router
