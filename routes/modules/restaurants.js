@@ -46,24 +46,27 @@ router.get('/:id/edit', (req, res) => {
   Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('edit', { restaurant }))
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      res.send('error now please refresh to http://localhost3000')
+    })
 })
 
 router.put("/:id", (req, res) => {
   const id = req.params.id
+  console.log(req.body)
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
     .then(restaurant => {
 
-      restaurant.name = name
-      restaurant.name_en = name_en
-      restaurant.category = category
-      restaurant.image = image
-      restaurant.location = location
-      restaurant.phone = phone
-      restaurant.google_map = google_map
-      restaurant.rating = rating
-      restaurant.description = description
+      //　由於解構賦值創造的新變數name，儲存的值為key-value的value，
+      //  ex : name = 'name'  新變數name 並不是一個Object 
+      // 不能直接使用Object.assign的方法，
+      // 因此利用 object literal extension，以 { name }  的方法 
+      // 做出一個物件 { name(key) : name(value 為之前儲存的變數)}
+
+      Object.assign(restaurant, { name, name_en, category, location, phone, google_map, rating, description })
+      console.log(restaurant)
 
       restaurant.save()
     }).then(() => res.redirect(`/restaurants/${id}`))
