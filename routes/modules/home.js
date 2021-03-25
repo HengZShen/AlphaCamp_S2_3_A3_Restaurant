@@ -1,5 +1,7 @@
 const express = require('express')
+const app = express()
 const router = express.Router()
+const exphbs = require('express-handlebars')
 
 const Restaurant = require('../../models/restaurant')
 
@@ -12,5 +14,15 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 
 })
+
+
+// exception
+router.get('/*', (req, res) => {
+
+  const url = req.url
+  res.render('undefinedRoute', { url, layout: 'forUndefined' })
+})
+
+
 
 module.exports = router

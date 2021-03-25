@@ -1,0 +1,21 @@
+body {
+margin:10% auto 0;
+max-width:400px;
+}
+
+.text-container {
+ 
+  min-height:300px;
+  max-width:400px;
+
+  
+}
+
+.fa-exclamation-triangle {
+  color:rgb(236, 112, 11);
+}
+
+#message {
+  line-height:1.5rem;
+  font-size: 1.2rem;
+}

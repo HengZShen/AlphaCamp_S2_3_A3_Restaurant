@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
+const { route } = require('./home')
 
 
 
@@ -48,6 +49,7 @@ router.get('/:id/edit', (req, res) => {
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => {
       console.log(error)
+      console.log('--------------------------------------')
       res.send('error now please refresh to http://localhost3000')
     })
 })
@@ -82,8 +84,6 @@ router.delete('/:id', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
-
-
 
 
 
