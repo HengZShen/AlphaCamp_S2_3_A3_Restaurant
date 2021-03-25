@@ -1,7 +1,7 @@
 const loader = document.querySelector('.loader-container')
 const container = document.querySelector('.card-container')
 const searchBtn = document.querySelector('#search-button')
-const searchInput = document.querySelector('input[type="text"]')
+const searchInput = document.querySelector('#search-input')
 const searchType = document.querySelector('#searchType')
 const dropdownBtn = document.querySelector('.dropdown-toggle')
 const dropdownItems = document.querySelectorAll('.dropdown-item')
@@ -52,15 +52,17 @@ function markTarget(target) {
 
 // change dropdown Btn name when click dropdown item
 function changeBtnName(event) {
+  // remove css class  'was-clicked' from all <a> elements
+  removeMark()
+  console.log(event.target)
   const target = event.target
   const text = target.innerText
   dropdownBtn.innerText = text
 
-  // remove css class  'was-clicked' from all <a> elements
-  removeMark()
 
   // add css class 'was-clicked' on target
   markTarget(target)
+
 }
 
 
@@ -73,22 +75,22 @@ dropdownItems.forEach(dropdownItem => dropdownItem.addEventListener('click', cha
 //change search bar Placeholder
 function changeSearchPlaceHolder(event) {
   const target = event.target
-  const option = target.innerText
-  console.log(option)
+  const option = target.id
+
   switch (option) {
-    case "餐廳名字    ":
+    case "search-name":
       searchInput.placeholder = '請輸入餐廳名字'
       searchType.value = '餐廳名字'
       break
-    case "餐廳種類    ":
+    case "search-category":
       searchInput.placeholder = '請輸入餐廳種類 ex: 咖啡、日本....'
       searchType.value = '餐廳種類'
       break
-    case "評價    ":
+    case "search-rating":
       searchInput.placeholder = "依造評價搜尋 ex: 5 => 搜尋評價5以上的餐廳 !!"
       searchType.value = '評價'
       break
-    case "區域    ":
+    case "search-location":
       searchInput.placeholder = "請輸入地址 ex: 台北市、信義路..... "
       searchType.value = '區域'
       break
@@ -107,7 +109,8 @@ dropdownItems.forEach(dropdownItem => dropdownItem.addEventListener('click', cha
 // check default search options when refresh 
 
 
-function getTarget(option) {
+function markDefaultOption(option) {
+
   const optionBtns = document.querySelectorAll('.dropdown-item')
   optionBtns.forEach(optionBtn => {
     if (optionBtn.innerText.includes(option)) {
@@ -116,11 +119,32 @@ function getTarget(option) {
   })
 }
 
+function changeDefaultPlaceholder(option) {
+
+  switch (option) {
+    case "餐廳名字":
+      searchInput.placeholder = '請輸入餐廳名字'
+      break
+    case "餐廳種類":
+      searchInput.placeholder = '請輸入餐廳種類 ex: 咖啡、日本....'
+      break
+    case "評價":
+      searchInput.placeholder = "依造評價搜尋 ex: 5 => 搜尋評價5以上的餐廳 !!"
+      break
+    case "區域":
+      searchInput.placeholder = "請輸入地址 ex: 台北市、信義路..... "
+      break
+  }
+}
+
 
 function checkSearchType() {
   const option = searchType.value
-  console.log(option)
-  getTarget(option)
+
+  markDefaultOption(option)
+
+  // placeholder也要更改
+  changeDefaultPlaceholder(option)
 }
 
 

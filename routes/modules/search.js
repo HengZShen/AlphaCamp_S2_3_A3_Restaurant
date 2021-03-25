@@ -6,8 +6,7 @@ const Restaurant = require('../../models/restaurant')
 router.get('/', (req, res) => {
 
   const { keyword, searchType } = req.query
-  console.log(`keyword:${keyword}`)
-  console.log(`searchType: ${searchType}`)
+
   if (searchType === '餐廳名字') {
     Restaurant.find({
       name: { $regex: `${keyword}`, $options: 'i' },

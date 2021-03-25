@@ -5,8 +5,8 @@
       <form action="/restaurants/search">
         <h4 id="search-title" class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="請輸入餐廳名字" aria-label="Restaurant Name..."
-            value="{{keyword}}" aria-describedby="search-button" required>
+          <input type="text" name="keyword" id="search-input" class="form-control" placeholder="請輸入餐廳名字"
+            aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button" required>
           <input type="text" name="searchType" id="searchType"
             value="{{#if searchType}}{{searchType}}{{else}}餐廳名字{{/if}}" style="display: none;">
           <div class="input-group-append">
@@ -20,13 +20,13 @@
               {{#if searchType}}{{searchType}}{{else}}搜尋方式{{/if}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">餐廳名字 <span class="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" id='search-name' href="#">餐廳名字<span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">餐廳種類 <span class="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" id='search-category' href="#">餐廳種類<span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">評價 <span class="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" id="search-rating" href="#">評價<span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">區域 <span class="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" id='search-location' href="#">區域<span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
             </div>
           </div>
