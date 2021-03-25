@@ -78,19 +78,19 @@ function changeSearchPlaceHolder(event) {
   switch (option) {
     case "餐廳名字    ":
       searchInput.placeholder = '請輸入餐廳名字'
-      searchType.value = 'name'
+      searchType.value = '餐廳名字'
       break
     case "餐廳種類    ":
       searchInput.placeholder = '請輸入餐廳種類 ex: 咖啡、日本....'
-      searchType.value = 'category'
+      searchType.value = '餐廳種類'
       break
     case "評價    ":
       searchInput.placeholder = "依造評價搜尋 ex: 5 => 搜尋評價5以上的餐廳 !!"
-      searchType.value = 'rating'
+      searchType.value = '評價'
       break
     case "區域    ":
       searchInput.placeholder = "請輸入地址 ex: 台北市、信義路..... "
-      searchType.value = 'location'
+      searchType.value = '區域'
       break
   }
 
@@ -98,8 +98,32 @@ function changeSearchPlaceHolder(event) {
 
 
 
-
-
 // add eventListener on each <a> link
 dropdownItems.forEach(dropdownItem => dropdownItem.addEventListener('click', changeSearchPlaceHolder)
 )
+
+
+
+// check default search options when refresh 
+
+
+function getTarget(option) {
+  const optionBtns = document.querySelectorAll('.dropdown-item')
+  optionBtns.forEach(optionBtn => {
+    if (optionBtn.innerText.includes(option)) {
+      optionBtn.classList.add('was-clicked')
+    }
+  })
+}
+
+
+function checkSearchType() {
+  const option = searchType.value
+  console.log(option)
+  getTarget(option)
+}
+
+
+
+
+checkSearchType()

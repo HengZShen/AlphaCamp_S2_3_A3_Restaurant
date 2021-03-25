@@ -7,7 +7,8 @@
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="請輸入餐廳名字" aria-label="Restaurant Name..."
             value="{{keyword}}" aria-describedby="search-button" required>
-          <input type="text" name="searchType" id="searchType" value="name" style="display: none;">
+          <input type="text" name="searchType" id="searchType"
+            value="{{#if searchType}}{{searchType}}{{else}}餐廳名字{{/if}}" style="display: none;">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
@@ -16,16 +17,16 @@
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              更多搜尋選擇
+              {{#if searchType}}{{searchType}}{{else}}搜尋方式{{/if}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">餐廳名字 <span id="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" href="#">餐廳名字 <span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">餐廳種類 <span id="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" href="#">餐廳種類 <span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">評價 <span id="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" href="#">評價 <span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" href="#">區域 <span id="create-space">&nbsp&nbsp&nbsp<i
+              <a class="dropdown-item" href="#">區域 <span class="create-space">&nbsp&nbsp&nbsp<i
                     class="fas fa-check"></i></span></a>
             </div>
           </div>
@@ -76,7 +77,7 @@
 
               {{!-- <a href="/restaurants/{{this._id}}?_method=DELETE"><i class=" fas fa-trash-alt"></i></a> --}}
               <form action="/restaurants/{{this._id}}?_method=DELETE" method='POST'>
-                <button id="delete-btn" type=" submit">
+                <button class="delete-btn" type=" submit">
                   <i class=" fas fa-trash-alt"></i>
                 </button>
               </form>

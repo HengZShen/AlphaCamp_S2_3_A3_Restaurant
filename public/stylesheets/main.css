@@ -296,16 +296,16 @@ form.was-validated textarea:valid {
 }
 
 /* delete-btn */
-#delete-btn {
+.delete-btn {
   background-color:transparent;
   border:none
 }
 
-#create-space {
+.create-space {
   display: none;
 }
 
-.dropdown-item.was-clicked > #create-space {
+.dropdown-item.was-clicked > .create-space {
   display:inline
 }
 
