@@ -309,6 +309,12 @@ form.was-validated textarea:valid {
   display:inline
 }
 
+
+.other-element {
+  display: flex;
+}
+
+
 @media screen and (max-width: 992px) {
   
   .card img{

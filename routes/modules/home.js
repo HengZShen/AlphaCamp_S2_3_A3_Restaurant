@@ -21,6 +21,7 @@ router.get('/*', (req, res) => {
 
   const url = req.url
   res.render('undefinedRoute', { url, layout: 'forUndefined' })
+
 })
 
 
