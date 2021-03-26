@@ -48,6 +48,7 @@
   ` Express : 4.17.1` <br>
   `Express-handlebars : 5.2.1` <br>
   `mongoose : 5.12.1` <br>
+  `method-override : 3.0.0`
 
   ## Contribute
   Preliminary layouts and CSS are provided by [AlphaCamp](https://tw.alphacamp.co/)
