@@ -39,7 +39,7 @@
  5. Create seed data <br>
  ` Type "npm run seed `
  6. Start server  <br>
- ` Type "nodemon app.js`  <br>
+ ` Type "npm run dev`  <br>
   ` If you see " The server is running on http://localhost:3000 " pop on your terminal`  <br>
   ` The server starts successfully`
 
