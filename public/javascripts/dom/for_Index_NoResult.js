@@ -52,10 +52,14 @@ function markTarget(target) {
 
 // change dropdown Btn name when click dropdown item
 function changeBtnName(event) {
+  const target = event.target
+  //  ensure click target is <a> not <span> & <i>
+  if (!target.classList.contains('dropdown-item')) return
+
   // remove css class  'was-clicked' from all <a> elements
   removeMark()
-  console.log(event.target)
-  const target = event.target
+
+
   const text = target.innerText
   dropdownBtn.innerText = text
 
