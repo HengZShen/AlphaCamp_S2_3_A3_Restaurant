@@ -15,19 +15,19 @@
 
           {{!-- dropdown options --}}
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            <button class="btn btn-secondary dropdown-toggle search-toggle" type="button" id="dropdownMenuButton"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{#if searchType}}{{searchType}}{{else}}搜尋方式{{/if}}
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" id='search-name' href="#">餐廳名字<span class="create-space">&nbsp&nbsp&nbsp<i
-                    class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" id='search-category' href="#">餐廳種類<span class="create-space">&nbsp&nbsp&nbsp<i
-                    class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" id="search-rating" href="#">評價<span class="create-space">&nbsp&nbsp&nbsp<i
-                    class="fas fa-check"></i></span></a>
-              <a class="dropdown-item" id='search-location' href="#">區域<span class="create-space">&nbsp&nbsp&nbsp<i
-                    class="fas fa-check"></i></span></a>
+            <div class="dropdown-menu search-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item search-item" id='search-name' href="#">餐廳名字<span
+                  class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
+              <a class="dropdown-item search-item" id='search-category' href="#">餐廳種類<span
+                  class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
+              <a class="dropdown-item search-item" id="search-rating" href="#">評價<span
+                  class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
+              <a class="dropdown-item search-item" id='search-location' href="#">區域<span
+                  class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
             </div>
           </div>
           {{!-- /dropdown options --}}

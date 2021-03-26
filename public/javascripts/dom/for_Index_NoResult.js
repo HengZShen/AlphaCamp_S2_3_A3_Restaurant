@@ -3,9 +3,9 @@ const container = document.querySelector('.card-container')
 const searchBtn = document.querySelector('#search-button')
 const searchInput = document.querySelector('#search-input')
 const searchType = document.querySelector('#searchType')
-const dropdownBtn = document.querySelector('.dropdown-toggle')
-const dropdownItems = document.querySelectorAll('.dropdown-item')
-const dropdownMenu = document.querySelector('.dropdown-menu')
+const dropdownBtn = document.querySelector('.search-toggle')
+const dropdownItems = document.querySelectorAll('.search-item')
+const dropdownMenu = document.querySelector('.search-menu')
 
 // loading
 searchBtn.addEventListener('click', loading)
