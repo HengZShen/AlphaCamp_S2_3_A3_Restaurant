@@ -65,7 +65,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put("/:id", (req, res) => {
   const id = req.params.id
-  console.log(req.body)
+
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
     .then(restaurant => {
@@ -77,7 +77,7 @@ router.put("/:id", (req, res) => {
       // 做出一個物件 { name(key) : name(value 為之前儲存的變數)}
 
       Object.assign(restaurant, { name, name_en, category, location, phone, google_map, rating, description })
-      console.log(restaurant)
+
 
       restaurant.save()
     }).then(() => res.redirect(`/restaurants/${id}`))
