@@ -51,13 +51,15 @@
   <div class="row">
 
     <div class="col-md-10 col-12 mx-auto">
+
+
       <div class="card-columns">
 
         {{#each restaurants}}
         <a href="/restaurants/{{this._id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-            <div class="card-body p-3 d-flex flex-column align-items-center">
+            <div class="card-body p-3 d-flex flex-column ">
               <h6 class="card-title mb-1 text-center">{{this.name}}</h6>
 
               <div class="info d-flex justify-content-around mt-3" style="width:100%">
@@ -76,11 +78,17 @@
               </div>
 
               {{!-- <a href="/restaurants/{{this._id}}?_method=DELETE"><i class=" fas fa-trash-alt"></i></a> --}}
-              <form action="/restaurants/{{this._id}}?_method=DELETE" method='POST'>
-                <button class="delete-btn" type=" submit">
-                  <i class=" fas fa-trash-alt"></i>
-                </button>
-              </form>
+              <div class="edit-container d-flex justify-content-end mt-5">
+
+                <a href="/restaurants/{{restaurant._id}}/edit"><i class="fas fa-edit" style="font-size:25px"></i></a>
+
+                <form class="ml-2" action="/restaurants/{{this._id}}?_method=DELETE" method='POST'>
+                  <button class="delete-btn" type=" submit">
+                    <i class=" fas fa-trash-alt" style="color:rgb(241, 152, 34);font-size:25px"></i>
+                  </button>
+                </form>
+
+              </div>
 
             </div>
           </div>

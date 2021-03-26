@@ -160,7 +160,7 @@ header {
 }
 
 .badge {
-  width:25%;
+  /* width:25%; */
 }
 
 .fas {
@@ -337,7 +337,7 @@ form.was-validated textarea:valid {
 }
 
 .badge {
-  width:50%;
+  /* width:50%; */
 }
 
 #rating {
@@ -370,7 +370,7 @@ form.was-validated textarea:valid {
 }
 
 .badge {
-  width:50%;
+  /* width:50%; */
 }
 
 #rating {
@@ -394,7 +394,7 @@ form.was-validated textarea:valid {
 }
   
   .badge {
-  width:30%;
+  /* width:30%; */
 }
 
 #rating {

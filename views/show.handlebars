@@ -34,7 +34,17 @@
         {{restaurant.description}}
       </p>
 
-      <a href="/restaurants/{{restaurant._id}}/edit">編輯資訊</a>
+      <div class="edit-container d-flex justify-content-end mt-5">
+
+        <a href="/restaurants/{{restaurant._id}}/edit"><i class="fas fa-edit" style="font-size:25px"></i></a>
+
+        <form class="ml-2" action="/restaurants/{{this._id}}?_method=DELETE" method='POST'>
+          <button class="delete-btn" type=" submit">
+            <i class=" fas fa-trash-alt" style="color:rgb(241, 152, 34);font-size:25px"></i>
+          </button>
+        </form>
+
+      </div>
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
