@@ -14,13 +14,18 @@
  ## How it looks
  
  ### Index
- ![screenshot](/public/Img/IndexPage.JPG)
+ ![screenshot](/public/Img/new_Layout.JPG)
  ### Loading
  ![screenshot](/public/Img/Loading.JPG)
  ### add a new restaurant
  ![screenshot](/public/Img/form.JPG)
  ### dark mode
  ![screenshot](/public/Img/darkMode.JPG)
+ ### search option
+ ![screenshot](/public/Img/searchByOption.JPG)
+ ### undefined route
+ ![screenshot](/public/Img/UndefinedRoute.JPG)
+ 
 
  ## Installing
  1. Open your terminal, and clone this project <br>
