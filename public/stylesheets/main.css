@@ -16,7 +16,11 @@
   --card-bg-color:white;
   --category-color : #f8f9fa;
   --rating-color : #dc3545;
-
+  --search-toggle-bg-color:rgb(82, 82, 82);
+  --search-toggle-border-color:rgb(82, 82, 82);
+  --sort-toggle-bg-color:rgb(141, 141, 141);
+  --sort-toggle-border-color:rgb(141, 141, 141);;
+  
   /* font */
   --nav-title-color:black;
   --search-title-color : #9b4b4b;
@@ -24,6 +28,10 @@
   --fas-restaurant-color: Black;
   --fas-rating-color: white;
   --fa-search-color:black;
+  --fa-edit-color:#007bff;
+  --fa-trash-color: rgb(241, 152, 34);
+  --description-color: black;
+
 }
 
 [data-mode='Dark'] {
@@ -36,7 +44,10 @@
   --card-bg-color:none;
   --category-color : #f8f9fa;
   --rating-color : #dc3545;
-  
+  --search-toggle-bg-color:rgb(216, 62, 62);
+  --search-toggle-border-color:rgb(216, 62, 62);
+  --sort-toggle-bg-color:rgb(255, 149, 11);
+  --sort-toggle-border-color:rgb(255, 149, 11);
 
   /* font */
    --nav-title-color:white;
@@ -45,6 +56,9 @@
   --fas-restaurant-color: Black;
   --fas-rating-color: white;
   --fa-search-color:black;
+  --fa-edit-color:#8d6c0b;
+  --fa-trash-color:#ab202d;
+   --description-color: #eaeaea
 }
 
 
@@ -309,11 +323,42 @@ form.was-validated textarea:valid {
   display:inline
 }
 
+.sort-item.was-clicked > .create-space {
+  display:inline
+}
 
 .other-element {
   display: flex;
 }
 
+/* dropdown button */
+.search-toggle {
+  background-color:var(--search-toggle-bg-color) !important;
+  border-color:var(--search-toggle-border-color) !important;
+}
+
+.sort-toggle {
+ background-color:var(--sort-toggle-bg-color) !important;
+  border-color:var(--sort-toggle-border-color) !important;
+}
+
+/* fa icon */
+.fa-edit {
+  color:var(--fa-edit-color);
+}
+
+.fa-trash-alt{
+  color: var(--fa-trash-color);
+}
+
+/* show page description */
+.description-box {
+  color: var(--description-color);
+}
+
+.description-box > span  {
+  color:var(--description-color) !important;
+}
 
 @media screen and (max-width: 992px) {
   

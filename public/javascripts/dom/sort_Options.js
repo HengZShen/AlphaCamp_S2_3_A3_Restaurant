@@ -1,32 +1,59 @@
 const sortBtn = document.querySelector('.sort-toggle')
 const sortItems = document.querySelectorAll('.sort-item')
 const sortMenu = document.querySelector('.sort-menu')
-
+const sortType = document.querySelector('#sortType')
 
 
 // change dropdown Btn name when click dropdown item
 
 
-function removeMark() {
+function removeMarkforSort() {
   sortItems.forEach(sortItem => sortItem.classList.remove('was-clicked'))
 }
 
 
-function markTarget(target) {
+function markTargetforSort(target) {
   target.classList.add(
     'was-clicked'
   )
 }
 
 
+//change search bar Placeholder
+function changeSortType(target) {
+  const option = target.id
+
+  switch (option) {
+    case "sort-h2l":
+      sortType.value = '評價 高-低'
+      break
+    case "sort-l2h":
+
+      sortType.value = '評價 低-高'
+      break
+    case "sort-a2z":
+
+      sortType.value = '名字 A-Z'
+      break
+    case "sort-z2a":
+
+      sortType.value = '名字 Z-A'
+      break
+  }
+
+}
+
+
+
+
 // change sort Btn name when click sort item
-function changeBtnName(event) {
+function changeBtnNameforSort(event) {
   const target = event.target
   //  ensure click target is <a> not <span> & <i>
   if (!target.classList.contains('sort-item')) return
 
   // remove css class  'was-clicked' from all <a> elements
-  removeMark()
+  removeMarkforSort()
 
 
   const text = target.innerText
@@ -34,12 +61,71 @@ function changeBtnName(event) {
 
 
   // add css class 'was-clicked' on target
-  markTarget(target)
+  markTargetforSort(target)
+
+  // change sortType value
+  changeSortType(target)
 
 }
 
 
 
+
+
+
+
+
 // add eventListener on each <a> link
-sortItems.forEach(sortItem => sortItem.addEventListener('click', changeBtnName)
+sortItems.forEach(sortItem => sortItem.addEventListener('click', changeBtnNameforSort)
 )
+
+
+
+
+// check default sort options when refresh 
+
+
+function markDefaultOptionforSort(option) {
+
+  let sortOption = ''
+  switch (option) {
+    case "評價 高-低":
+      sortOption = 'sort-h2l'
+      break
+    case "評價 低-高":
+
+      sortOption = 'sort-l2h'
+      break
+    case "名字 A-Z":
+
+      sortOption = 'sort-a2z'
+      break
+    case "名字 Z-A":
+
+      sortOption = 'sort-z2a'
+      break
+  }
+
+
+
+  const sortBtns = document.querySelectorAll('.sort-item')
+  sortBtns.forEach(sortBtn => {
+    if (sortBtn.id === sortOption) {
+      sortBtn.classList.add('was-clicked')
+    }
+  })
+}
+
+
+
+function checkSortType() {
+  const option = sortType.value
+
+  markDefaultOptionforSort(option)
+
+}
+
+
+
+
+checkSortType()
