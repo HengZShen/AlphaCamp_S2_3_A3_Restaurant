@@ -4,7 +4,7 @@ const restaurant = require('../../models/restaurant')
 
 
 router.get('/', (req, res) => {
-  console.log(req.query.sortType)
+
   const { sortType
   } = req.query
 

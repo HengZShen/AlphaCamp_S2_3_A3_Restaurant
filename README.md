@@ -23,8 +23,11 @@
  ![screenshot](/public/Img/darkMode.JPG)
  ### search option
  ![screenshot](/public/Img/searchByOption.JPG)
+ ### sort option
+ ![screenshot](/public/Img/sortByOption.JPG)
  ### undefined route
  ![screenshot](/public/Img/UndefinedRoute.JPG)
+ 
  
 
  ## Installing
