@@ -9,8 +9,6 @@ router.get('/', (req, res) => {
   } = req.query
 
 
-
-
   if (sortType === '') {
 
     if (searchType === '餐廳名字') {
@@ -119,7 +117,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -134,14 +132,14 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
     } else if (searchType === '評價') {
 
       if (isNaN(Number(keyword))) {
-        setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
+        setTimeout(() => { res.render('noResult', { keyword, searchType, }) }, 1000)
         return
       }
 
@@ -155,7 +153,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -171,7 +169,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -193,7 +191,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -208,7 +206,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -229,7 +227,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -245,7 +243,7 @@ router.get('/', (req, res) => {
             setTimeout(() => { res.render('noResult', { keyword, searchType }) }, 1000)
 
           } else {
-            setTimeout(() => { res.render('index', { restaurants, keyword, searchType }) }, 1000)
+            setTimeout(() => { res.render('index', { restaurants, keyword, searchType, sortType }) }, 1000)
           }
         })
         .catch(error => console.log(error))
@@ -253,10 +251,6 @@ router.get('/', (req, res) => {
 
 
   }
-
-
-
-
 
 
 

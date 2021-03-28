@@ -115,7 +115,7 @@ dropdownItems.forEach(dropdownItem => dropdownItem.addEventListener('click', cha
 
 function markDefaultOption(option) {
 
-  const optionBtns = document.querySelectorAll('.dropdown-item')
+  const optionBtns = document.querySelectorAll('.search-item')
   optionBtns.forEach(optionBtn => {
     if (optionBtn.innerText.includes(option)) {
       optionBtn.classList.add('was-clicked')

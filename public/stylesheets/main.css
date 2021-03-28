@@ -319,7 +319,7 @@ form.was-validated textarea:valid {
   display: none;
 }
 
-.dropdown-item.was-clicked > .create-space {
+.search-item.was-clicked > .create-space {
   display:inline
 }
 

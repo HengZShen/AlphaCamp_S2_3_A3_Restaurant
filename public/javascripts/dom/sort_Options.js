@@ -88,43 +88,43 @@ sortItems.forEach(sortItem => sortItem.addEventListener('click', changeBtnNamefo
 
 function markDefaultOptionforSort(option) {
 
-  // let sortOption = ''
-  // switch (option) {
-  //   case "評價 高-低":
-  //     sortOption = 'sort-h2l'
-  //     break
-  //   case "評價 低-高":
-
-  //     sortOption = 'sort-l2h'
-  //     break
-  //   case "名字 A-Z":
-
-  //     sortOption = 'sort-a2z'
-  //     break
-  //   case "名字 Z-A":
-
-  //     sortOption = 'sort-z2a'
-  //     break
-  // }
-
-
-
-
-
   const sortOpts = document.querySelectorAll('.sort-item')
   sortOpts.forEach(sortOpt => {
-    if (sortOpt.id === Option) {
+    if (sortOpt.id === option) {
+
       sortOpt.classList.add('was-clicked')
     }
   })
+
 }
 
 
+function changeDefaultBtnText(option) {
+
+
+  switch (option) {
+    case "sort-h2l":
+      sortBtn.innerText = '評價 高-低'
+      break
+    case "sort-l2h":
+      sortBtn.innerText = '評價 低-高'
+      break
+    case "sort-a2z":
+      sortBtn.innerText = '名字 A-Z'
+      break
+    case "sort-z2a":
+      sortBtn.innerText = '名字 Z-A'
+      break
+  }
+
+}
 
 function checkSortType() {
   const option = sortType.value
 
   markDefaultOptionforSort(option)
+
+  changeDefaultBtnText(option)
 
 }
 

@@ -1,8 +1,9 @@
 <!-- search bar -->
-<div class="container search-bar">
-  <div class="search-bar-outer">
-    <div class="search-bar-inner">
-      <form action="/restaurants/search">
+<form action="/restaurants/search" novalidate>
+  <div class="container search-bar">
+    <div class="search-bar-outer">
+      <div class="search-bar-inner">
+
         <h4 id="search-title" class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" id="search-input" class="form-control" placeholder="請輸入餐廳名字"
@@ -20,7 +21,7 @@
               {{#if searchType}}{{searchType}}{{else}}搜尋方式{{/if}}
             </button>
             <div class="dropdown-menu search-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item search-item" id='search-name' href="#">餐廳名字<span
+              <a class="dropdown-item search-item " id='search-name' href="#">餐廳名字<span
                   class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
               <a class="dropdown-item search-item" id='search-category' href="#">餐廳種類<span
                   class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></a>
@@ -32,10 +33,45 @@
           </div>
           {{!-- /dropdown options --}}
         </div>
-      </form>
+
+
+
+
+
+      </div>
     </div>
   </div>
-</div>
+
+  {{!-- sort options --}}
+  {{!-- <form action="/restaurants/sort"> --}}
+    <div class="container d-flex flex-column align-items-end sort-options-container">
+
+      <div class="dropdown show">
+        <button class="btn btn-secondary dropdown-toggle sort-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{#if sortType}}{{sortType}}{{else}}排序方式{{/if}}
+        </button>
+
+        {{!-- sort form --}}
+
+        <input type="text" id="sortType" name="sortType" value="{{#if sortType}}{{sortType}}{{else}}{{/if}}"
+          style="display: none;">
+        <div class="dropdown-menu sort-menu" aria-labelledby="dropdownMenuLink">
+          <button type="submit" class=" dropdown-item sort-item" id="sort-h2l">評價 高-低<span
+              class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></button>
+          <button type="submit" class=" dropdown-item sort-item" id="sort-l2h">評價 低-高<span
+              class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></button>
+          <button type="submit" class=" dropdown-item sort-item" id="sort-a2z">名字 A-Z<span
+              class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></button>
+          <button type="submit" class=" dropdown-item sort-item" id="sort-z2a">名字 Z-A<span
+              class="create-space">&nbsp&nbsp&nbsp<i class="fas fa-check"></i></span></button>
+
+        </div>
+      </div>
+    </div>
+    {{!--
+  </form> --}}
+</form>
 
 <!-- restaurant list -->
 <div class="loader-container" hidden>

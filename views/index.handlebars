@@ -7,7 +7,7 @@
         <h4 id="search-title" class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" id="search-input" class="form-control" placeholder="請輸入餐廳名字"
-            aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button" required>
+            aria-label="Restaurant Name..." value="{{keyword}}" aria-describedby="search-button">
           <input type="text" name="searchType" id="searchType"
             value="{{#if searchType}}{{searchType}}{{else}}餐廳名字{{/if}}" style="display: none;">
           <div class="input-group-append">
@@ -44,7 +44,7 @@
 
   {{!-- sort options --}}
   {{!-- <form action="/restaurants/sort"> --}}
-    <div class="sort-options-container d-flex justify-content-end mb-5">
+    <div class="container d-flex flex-column align-items-end sort-options-container">
 
       <div class="dropdown show">
         <button class="btn btn-secondary dropdown-toggle sort-toggle" href="#" role="button" id="dropdownMenuLink"
