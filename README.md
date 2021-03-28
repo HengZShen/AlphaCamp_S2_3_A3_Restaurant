@@ -3,12 +3,13 @@
  
  
  ## Features
- 1. search restaurants by name
- 2. add "loading" animation while searching
- 3. user can add their favorite restaurants
- 4. user can edit their favorite restaurants
- 5. user can delete their favorite restaurants
- 6. user can switch between dark mode and light mode
+ 1. user can search restaurants by options
+ 2. user can sort the result of search
+ 3. add "loading" animation while searching
+ 4. user can add their favorite restaurants
+ 5. user can edit their favorite restaurants
+ 6. user can delete their favorite restaurants
+ 7. user can switch between dark mode and light mode
  
 
  ## How it looks
