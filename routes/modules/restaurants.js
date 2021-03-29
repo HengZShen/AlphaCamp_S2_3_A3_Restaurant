@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
-const { route } = require('./home')
+
 
 
 
@@ -35,14 +35,27 @@ router.get('/:restaurant_id', (req, res) => {
   const id = req.params.restaurant_id
   Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('show', { restaurant }))
+    .then(restaurant => {
+
+      if (restaurant === null) {
+
+        return Promise.reject(new Error('no restaurant!'))
+      }
+
+
+      res.render('show', { restaurant })
+
+
+
+
+    })
     .catch(error => {
 
       console.log(error)
 
       // exception
       const url = req.url
-      res.render('undefinedRoute', { url, layout: 'forUndefined' })
+      // res.render('undefinedRoute', { url, layout: 'forUndefined' })
 
 
     })
@@ -65,6 +78,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.put("/:id", (req, res) => {
   const id = req.params.id
+
 
   const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
