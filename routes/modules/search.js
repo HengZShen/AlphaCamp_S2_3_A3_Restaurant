@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
   let document
 
   console.log('0')
+
+  // 評價 不可讀取數字外的內容
   if (searchType === '評價') {
 
     if (isNaN(Number(keyword))) {
@@ -20,6 +22,7 @@ router.get('/', (req, res) => {
       return
     }
   }
+
   // query
   document = Restaurant.find({
     name: { $regex: name, $options: 'i' }, category: { $regex: category, $options: 'i' }, rating: { $gte: rating }, location: { $regex: location, $options: 'i' }
@@ -45,6 +48,7 @@ router.get('/', (req, res) => {
       }
     })
     .catch(error => console.log(error))
+
   // console.log('3')
 })
 
