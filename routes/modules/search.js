@@ -25,16 +25,16 @@ router.get('/', (req, res) => {
     name: { $regex: name, $options: 'i' }, category: { $regex: category, $options: 'i' }, rating: { $gte: rating }, location: { $regex: location, $options: 'i' }
   })
 
-  console.log('1')
+  // console.log('1')
   if (nameOrient) {
     document = document.sort(nameOrient)
-    console.log('name')
+    // console.log('name')
   } else if (ratingOrient) {
     document = document.sort(ratingOrient)
-    console.log('rating')
+    // console.log('rating')
   }
 
-  console.log('2')
+  // console.log('2')
   document
     .lean()
     .then(restaurants => {
@@ -45,11 +45,8 @@ router.get('/', (req, res) => {
       }
     })
     .catch(error => console.log(error))
-  console.log('3')
+  // console.log('3')
 })
-
-
-
 
 
 module.exports = router

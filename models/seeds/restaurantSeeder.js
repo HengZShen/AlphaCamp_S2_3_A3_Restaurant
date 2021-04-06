@@ -1,6 +1,6 @@
 
 const Restaurant = require("../restaurant")
-const restaurantData = require('../../restaurant.json')
+const restaurantData = require('../../restaurant.json').results
 
 // mongodb connect
 const db = require('../../config/mongoose')
@@ -9,21 +9,10 @@ const db = require('../../config/mongoose')
 db.once('open', () => {
   console.log('mongodb connected')
 
-  for (let i = 0; i < restaurantData.results.length; i++) {
-    const { name, name_en, category, image, location, phone, google_map, rating, description } = restaurantData.results[i]
+  Restaurant.create(restaurantData).then(() => {
+    console.log('seed data created')
+    db.close()
+  }).catch(error => console.log('mongodb connection error'))
 
-    Restaurant.create({
-      name,
-      name_en,
-      category,
-      image,
-      location,
-      phone,
-      google_map,
-      rating,
-      description
-    })
-  }
-  console.log('done')
 
 })

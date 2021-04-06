@@ -45,12 +45,7 @@ router.get('/:restaurant_id', (req, res) => {
         return Promise.reject(new Error('no restaurant!'))
       }
 
-
       res.render('show', { restaurant })
-
-
-
-
     })
     .catch(error => {
 
@@ -58,9 +53,7 @@ router.get('/:restaurant_id', (req, res) => {
 
       // exception
       const url = req.url
-      // res.render('undefinedRoute', { url, layout: 'forUndefined' })
-
-
+      res.render('undefinedRoute', { url, layout: 'forUndefined' })
     })
 })
 
@@ -82,7 +75,6 @@ router.get('/:id/edit', (req, res) => {
 router.put("/:id", (req, res) => {
   const id = req.params.id
 
-  console.log(req.body)
   // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
     .then(restaurant => {
