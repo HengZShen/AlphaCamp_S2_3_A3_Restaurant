@@ -12,20 +12,23 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
 
-  Restaurant.create({
-    name,
-    name_en,
-    category,
-    image,
-    location,
-    phone,
-    google_map,
-    rating,
-    description
-  }).then(() => res.redirect('/'))
+  // Restaurant.create({
+  //   name,
+  //   name_en,
+  //   category,
+  //   image,
+  //   location,
+  //   phone,
+  //   google_map,
+  //   rating,
+  //   description
+  // }).then(() => res.redirect('/'))
+  //   .catch(error => console.log(error))
+  Restaurant.create(req.body).then(() => res.redirect('/'))
     .catch(error => console.log(error))
+
 })
 
 
@@ -79,8 +82,8 @@ router.get('/:id/edit', (req, res) => {
 router.put("/:id", (req, res) => {
   const id = req.params.id
 
-
-  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+  console.log(req.body)
+  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
     .then(restaurant => {
 
@@ -90,8 +93,9 @@ router.put("/:id", (req, res) => {
       // 因此利用 object literal extension，以 { name }  的方法 
       // 做出一個物件 { name(key) : name(value 為之前儲存的變數)}
 
-      Object.assign(restaurant, { name, name_en, category, location, phone, google_map, rating, description })
+      // Object.assign(restaurant, { name, name_en, category, location, phone, google_map, rating, description })
 
+      Object.assign(restaurant, req.body)
 
       restaurant.save()
     }).then(() => res.redirect(`/restaurants/${id}`))
