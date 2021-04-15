@@ -5,25 +5,16 @@ const router = express.Router()
 
 const Restaurant = require('../../models/restaurant')
 
+
 // route : index
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
 
   Restaurant.find()
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
-    .catch(error => console.log(error))
+    .catch(next)
 
 })
-
-
-// exception
-router.get('/*', (req, res) => {
-
-  const url = req.url
-  res.render('undefinedRoute', { url, layout: 'forUndefined' })
-
-})
-
 
 
 module.exports = router

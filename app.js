@@ -29,6 +29,12 @@ const routes = require('./routes')
 app.use(routes)
 
 
+// Error-handling middleware
+app.use((err, req, res, next) => {
+  const url = req.url
+  res.render('undefinedRoute', { url, layout: 'forUndefined' })
+})
+
 
 
 // start and listen server

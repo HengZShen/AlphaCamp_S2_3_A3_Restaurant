@@ -12,20 +12,6 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
 
-  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
-
-  // Restaurant.create({
-  //   name,
-  //   name_en,
-  //   category,
-  //   image,
-  //   location,
-  //   phone,
-  //   google_map,
-  //   rating,
-  //   description
-  // }).then(() => res.redirect('/'))
-  //   .catch(error => console.log(error))
   Restaurant.create(req.body).then(() => res.redirect('/'))
     .catch(error => console.log(error))
 
@@ -33,8 +19,7 @@ router.post('/', (req, res) => {
 
 
 // route : show
-
-router.get('/:restaurant_id', (req, res) => {
+router.get('/:restaurant_id', (req, res, next) => {
   const id = req.params.restaurant_id
   Restaurant.findById(id)
     .lean()
@@ -47,51 +32,37 @@ router.get('/:restaurant_id', (req, res) => {
 
       res.render('show', { restaurant })
     })
-    .catch(error => {
-
-      console.log(error)
-
-      // exception
-      const url = req.url
-      res.render('undefinedRoute', { url, layout: 'forUndefined' })
-    })
+    .catch(next)
 })
 
 
 
 // edit one restaurant
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', (req, res, next) => {
   const id = req.params.id
   Restaurant.findById(id)
     .lean()
-    .then(restaurant => res.render('edit', { restaurant }))
-    .catch(error => {
-      console.log(error)
-      const url = req.url
-      res.render('undefinedRoute', { url, layout: 'forUndefined' })
+    .then(restaurant => {
+      if (restaurant === null) {
+        throw new Error("restaurant not existed")
+      }
+      res.render('edit', { restaurant })
     })
+    .catch(next)  // edit 也需要防止進到空白頁面 不可針對空白id做修改 不然無法進入下方的put
 })
 
 router.put("/:id", (req, res) => {
   const id = req.params.id
 
-  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
   Restaurant.findById(id)
     .then(restaurant => {
 
-      //　由於解構賦值創造的新變數name，儲存的值為key-value的value，
-      //  ex : name = 'name'  新變數name 並不是一個Object 
-      // 不能直接使用Object.assign的方法，
-      // 因此利用 object literal extension，以 { name }  的方法 
-      // 做出一個物件 { name(key) : name(value 為之前儲存的變數)}
-
-      // Object.assign(restaurant, { name, name_en, category, location, phone, google_map, rating, description })
 
       Object.assign(restaurant, req.body)
 
       restaurant.save()
     }).then(() => res.redirect(`/restaurants/${id}`))
-    .catch(error => console.log(error))
+    .catch(next)
 }
 )
 
@@ -102,14 +73,6 @@ router.delete('/:id', (req, res) => {
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-})
-
-
-// exception
-router.get('/*', (req, res) => {
-
-  const url = req.url
-  res.render('undefinedRoute', { url, layout: 'forUndefined' })
 })
 
 
