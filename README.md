@@ -2,6 +2,9 @@
  Practice how to use express-handlebars and mongoose 
  
  
+ ## live demo
+ https://secure-wave-24538.herokuapp.com/
+
  ## Features
  1. user can search restaurants by options
  2. user can sort the result of search
